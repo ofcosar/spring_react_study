@@ -1,18 +1,26 @@
 package com.example.demo.student.domain;
 
-import lombok.AllArgsConstructor;
+
+
 import lombok.Data;
-import lombok.ToString;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@ToString
-@Data
+
 @Entity
+@Data
 public class Student {
+    @Column(
+        nullable = false
+    )
     private String studentName;
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Long id;
-
+    @Column(
+            nullable = false
+    )
+    private Long studentId;
 }
